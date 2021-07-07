@@ -1,102 +1,104 @@
-# Tuya IoTOS Embedded Mcu Demo Wifi Ble TMP75
+# Tuya IoTOS Embedded Wi-Fi & Bluetooth LE Temperature Sensor
 
 [English](./README.md) | [中文](./README_zh.md)
 
-## Introduction  
+## Overview
 
-This Demo uses the Tuya smart cloud platform, Tuya smart APP, TMP75 and IoTOS Embedded MCU SDK to realize a temperature detector.
+In this demo, we will show you how to develop with the MCU SDK to enable a TMP75 temperature sensor to connect to the Tuya IoT Cloud with the Tuya Smart app.
 
-The implemented features include:
+Features:
 
-+ temperature measurement
-
-
-## Quick start  
-
-### Compile & Burn
-+ Download  Tuya IoTOS Embeded Code
-+ Execute the test.uvprojx file
-+ Click Compile in the software and complete the download
++ Detect temperature
 
 
-### File introduction 
+
+
+
+## Get started
+
+### Compile and flash
++ Download [Tuya IoTOS Embedded MCU SDK](https://registry.code.tuya-inc.top/hardware_developer/tuya-iotos-embeded-mcu-demo-4g-vending-machine/tree/master).
+
++ Run `test.uvprojx`.
+
++ Click **Compile** on the software to download the code.
+
+
+### File introduction
 
 ```
 ├── user
-│   ├── main.c
-│   ├── MY_ST_config.h
+│   ├── main.c
+│   ├── MY_ST_config.h
 ├── CMSIS
-│   ├── system_stm32g0xx.c
-│   ├── startup_stm32g071xx.s
+│   ├── system_stm32g0xx.c
+│   ├── startup_stm32g071xx.s
 ├── SYSTEM
-│   ├── sys.c
-│   ├── sys.h
-│   ├── RCC.c
-│   ├── RCC.h
-│   ├── delay.c
-│   ├── delay.h
-│   ├── USART.c
-│   ├── USART.h
-│   ├── IO.c
-│   ├── IO.h
-│   ├── TIM.c
-│   ├── TIM.h
+│   ├── sys.c
+│   ├── sys.h
+│   ├── RCC.c
+│   ├── RCC.h
+│   ├── delay.c
+│   ├── delay.h
+│   ├── USART.c
+│   ├── USART.h
+│   ├── IO.c
+│   ├── IO.h
+│   ├── TIM.c
+│   ├── TIM.h
 └── SYSTEM
-    ├── mcu_api.c
-    ├── mcu_api.h
-    ├── protocol.c
-    ├── protocol.h
+    ├── mcu_api.c
+    ├── mcu_api.h
+    ├── protocol.c
+    ├── protocol.h
     ├── system.c
-    ├── system.h
+    ├── system.h
     └── wifi.h
-    
+
 ```
 
 
 
 ### Demo entry
 
-Entry file：main.c
+Entry file: `main.c`
 
-Important functions：main()
+Main function: `main()`
 
-+ Initialize and configure MCU IO port, USART, timer, etc. All events are polled and judged in while(1)。
-
-
-
-
-### DataPoint related
-
-+ DP point processing: mcu_dp_value_update()
-
-| function name | unsigned char mcu_dp_value_update(unsigned char dpid,unsigned long value) |
-| ------------- | ------------------------------------------------------------ |
-| dpid          | DP ID number                                                 |
-| value         | DP data                                                      |
-| Return        | SUCCESS: Success ERROR: Failure                              |
++ Initialize and configure I/Os, USART, and timer of the MCU. All events are polled and determined in `while(1)`.
 
 
 
-### I/O List  
 
-|    SHT21     | UASRT1  | SWITCH |
+### Data point (DP)
+
++ Process DP data: `mcu_dp_value_update()`
+
+| Function name | unsigned char mcu_dp_value_update(unsigned char dpid,unsigned long value) |
+| ------ | ------------------------------------------------------------ |
+| dpid | DP ID |
+| value | DP data |
+| Return | SUCCESS: DP data reporting succeeded. ERROR: DP data reporting failed. |
+
+
+
+### Pin configuration
+
+| TMP75 | UASRT1 | SWITCH |
 | :----------: | :-----: | :----: |
-| PB11 IIC_SDA | PC4 TXD |  PC13  |
+| PB11 IIC_SDA | PC4 TXD | PC13 |
 | PB12 IIC_SCL | PC5 RXD |        |
 
+## Reference
 
-
-## Related Documents
-
-  Tuya Demo Center: https://developer.tuya.com/demo
+[Tuya Project Hub](https://developer.tuya.com/demo)
 
 
 
 ## Technical Support
 
-  You can get support for Tuya by using the following methods:
+You can get support from Tuya with the following methods:
 
-- Developer Center: https://developer.tuya.com
-- Help Center: https://support.tuya.com/help
-- Technical Support Work Order Center: [https://service.console.tuya.com](https://service.console.tuya.com/) 
-
+- [Tuya IoT Developer Platform](https://developer.tuya.com/en/)
+- [Help Center](https://support.tuya.com/en/help)
+- [Service & Support](https://service.console.tuya.com)[](https://service.console.tuya.com/)
