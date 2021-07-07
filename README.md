@@ -6,7 +6,7 @@
 
 In this demo, we will show you how to develop with the MCU SDK to enable a TMP75 temperature sensor to connect to the Tuya IoT Cloud with the Tuya Smart app.
 
-Features:
+Feature:
 
 + Detect temperature
 
@@ -17,7 +17,7 @@ Features:
 ## Get started
 
 ### Compile and flash
-+ Download [Tuya IoTOS Embedded MCU SDK](https://registry.code.tuya-inc.top/hardware_developer/tuya-iotos-embeded-mcu-demo-4g-vending-machine/tree/master).
++ Download Tuya IoTOS Embedded code.
 
 + Run `test.uvprojx`.
 
