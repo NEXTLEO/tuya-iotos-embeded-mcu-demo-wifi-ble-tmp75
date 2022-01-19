@@ -197,7 +197,7 @@ float TMP75_getTemperature(void)
 	static uint8_t buf[2];
 	static float temp;
 	IIC_ReadMulByte(TMP75_ADDRESS,TemperatureRegister,buf,2);
-	 temp=((((buf[0]<<8)|buf[1])>>4)*0.625);
+	 temp=((((buf[0]<<8) | buf[1]) >> 4) * 0.625f);
 	return temp;
 }
 void TMP75_Init(void)
